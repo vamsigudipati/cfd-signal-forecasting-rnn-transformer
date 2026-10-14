@@ -1,0 +1,37 @@
+seed,part,config,test_mae,epochs,train_s
+0,base,Simple Transformer,0.09689557552337646,50.0,
+0,Exercise 1,"d_model 16, 2 heads, 1 blocks",0.11399395018815994,30.0,78.0
+0,Exercise 1,"d_model 64, 4 heads, 3 blocks",0.10439421236515045,30.0,185.0
+0,Exercise 2,output window 1,0.03189772367477417,,
+0,Exercise 2,output window 5,0.06508446484804153,,
+0,Exercise 2,output window 20,0.19620834290981293,,
+0,Exercise 3,input window 100,0.09593478590250015,30.0,163.0
+0,Exercise 3,input window 600,0.12952794134616852,30.0,131.0
+0,Exercise 4,SimpleRNN (CPU),0.04116570204496384,30.0,27.0
+0,Exercise 4,GRU,0.03425879031419754,30.0,54.0
+0,Exercise 4,LSTM,0.03568825125694275,30.0,54.0
+0,Exercise 5,residual Transformer,0.10358602553606033,16.0,80.0
+1,base,Simple Transformer,0.1063409298658371,50.0,240.4
+1,Exercise 1,"d_model 16, 2 heads, 1 blocks",0.11864351481199265,30.0,87.3
+1,Exercise 1,"d_model 64, 4 heads, 3 blocks",0.09990829229354858,30.0,201.6
+1,Exercise 2,output window 1,0.028224308043718338,30.0,149.5
+1,Exercise 2,output window 5,0.06516828387975693,30.0,150.5
+1,Exercise 2,output window 20,0.19737151265144348,30.0,147.3
+1,Exercise 3,input window 100,0.10599054396152496,30.0,170.3
+1,Exercise 3,input window 600,0.12300798296928406,30.0,132.3
+1,Exercise 4,SimpleRNN (CPU),0.035122621804475784,30.0,27.3
+1,Exercise 4,GRU,0.03474651277065277,30.0,54.0
+1,Exercise 4,LSTM,0.03500211983919144,30.0,53.6
+1,Exercise 5,residual Transformer,0.10308853536844254,14.0,72.5
+2,base,Simple Transformer,0.10188248753547668,50.0,243.8
+2,Exercise 1,"d_model 16, 2 heads, 1 blocks",0.11658643186092377,30.0,88.4
+2,Exercise 1,"d_model 64, 4 heads, 3 blocks",0.1033095270395279,30.0,205.9
+2,Exercise 2,output window 1,0.03335295617580414,30.0,153.3
+2,Exercise 2,output window 5,0.07050446420907974,30.0,153.3
+2,Exercise 2,output window 20,0.18864436447620392,30.0,151.5
+2,Exercise 3,input window 100,0.09780732542276382,30.0,171.7
+2,Exercise 3,input window 600,0.1339319348335266,30.0,131.2
+2,Exercise 4,SimpleRNN (CPU),0.03259693831205368,30.0,28.2
+2,Exercise 4,GRU,0.03977099061012268,30.0,56.0
+2,Exercise 4,LSTM,0.04369226470589638,30.0,52.7
+2,Exercise 5,residual Transformer,0.10329827666282654,14.0,72.1

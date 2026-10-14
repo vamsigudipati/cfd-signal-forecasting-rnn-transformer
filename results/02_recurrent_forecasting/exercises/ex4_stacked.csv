@@ -1,0 +1,2 @@
+model,test_mae,best_val,train_val_gap,epochs,train_s,s_per_epoch,params
+GRU x2,0.028907621279358864,0.027420543134212494,-0.0012547709047794342,40,147.7,3.69,9729

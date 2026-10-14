@@ -1,0 +1,761 @@
+{
+    "description": "Raw time-series TFRecords",
+    "source_h5_file": "../data/utmp_y50_raw_timeseries.h5",
+    "strategy": "one record per original CFD file segment",
+    "compression_type": "",
+    "attrs": {
+        "description": "Processed raw CFD time series for machine learning",
+        "n_files": "106",
+        "n_total_samples": "106000",
+        "original_dataset": "sta/utmp",
+        "selected_y_value": "-0.6195544775771658",
+        "time_dataset": "header/timev",
+        "variable": "utmp",
+        "y_dataset": "header/y",
+        "y_index": "50"
+    },
+    "shards": [
+        {
+            "file_id": 0,
+            "tfrecord_file": "raw_00000.tfrecord",
+            "original_file_name": "P125_83pi_30001.stp",
+            "start_index": 0,
+            "length": 1000
+        },
+        {
+            "file_id": 1,
+            "tfrecord_file": "raw_00001.tfrecord",
+            "original_file_name": "P125_83pi_30002.stp",
+            "start_index": 1000,
+            "length": 1000
+        },
+        {
+            "file_id": 2,
+            "tfrecord_file": "raw_00002.tfrecord",
+            "original_file_name": "P125_83pi_30003.stp",
+            "start_index": 2000,
+            "length": 1000
+        },
+        {
+            "file_id": 3,
+            "tfrecord_file": "raw_00003.tfrecord",
+            "original_file_name": "P125_83pi_30004.stp",
+            "start_index": 3000,
+            "length": 1000
+        },
+        {
+            "file_id": 4,
+            "tfrecord_file": "raw_00004.tfrecord",
+            "original_file_name": "P125_83pi_30005.stp",
+            "start_index": 4000,
+            "length": 1000
+        },
+        {
+            "file_id": 5,
+            "tfrecord_file": "raw_00005.tfrecord",
+            "original_file_name": "P125_83pi_30006.stp",
+            "start_index": 5000,
+            "length": 1000
+        },
+        {
+            "file_id": 6,
+            "tfrecord_file": "raw_00006.tfrecord",
+            "original_file_name": "P125_83pi_30007.stp",
+            "start_index": 6000,
+            "length": 1000
+        },
+        {
+            "file_id": 7,
+            "tfrecord_file": "raw_00007.tfrecord",
+            "original_file_name": "P125_83pi_30008.stp",
+            "start_index": 7000,
+            "length": 1000
+        },
+        {
+            "file_id": 8,
+            "tfrecord_file": "raw_00008.tfrecord",
+            "original_file_name": "P125_83pi_30009.stp",
+            "start_index": 8000,
+            "length": 1000
+        },
+        {
+            "file_id": 9,
+            "tfrecord_file": "raw_00009.tfrecord",
+            "original_file_name": "P125_83pi_30010.stp",
+            "start_index": 9000,
+            "length": 1000
+        },
+        {
+            "file_id": 10,
+            "tfrecord_file": "raw_00010.tfrecord",
+            "original_file_name": "P125_83pi_30011.stp",
+            "start_index": 10000,
+            "length": 1000
+        },
+        {
+            "file_id": 11,
+            "tfrecord_file": "raw_00011.tfrecord",
+            "original_file_name": "P125_83pi_30012.stp",
+            "start_index": 11000,
+            "length": 1000
+        },
+        {
+            "file_id": 12,
+            "tfrecord_file": "raw_00012.tfrecord",
+            "original_file_name": "P125_83pi_30013.stp",
+            "start_index": 12000,
+            "length": 1000
+        },
+        {
+            "file_id": 13,
+            "tfrecord_file": "raw_00013.tfrecord",
+            "original_file_name": "P125_83pi_30014.stp",
+            "start_index": 13000,
+            "length": 1000
+        },
+        {
+            "file_id": 14,
+            "tfrecord_file": "raw_00014.tfrecord",
+            "original_file_name": "P125_83pi_30015.stp",
+            "start_index": 14000,
+            "length": 1000
+        },
+        {
+            "file_id": 15,
+            "tfrecord_file": "raw_00015.tfrecord",
+            "original_file_name": "P125_83pi_30016.stp",
+            "start_index": 15000,
+            "length": 1000
+        },
+        {
+            "file_id": 16,
+            "tfrecord_file": "raw_00016.tfrecord",
+            "original_file_name": "P125_83pi_30017.stp",
+            "start_index": 16000,
+            "length": 1000
+        },
+        {
+            "file_id": 17,
+            "tfrecord_file": "raw_00017.tfrecord",
+            "original_file_name": "P125_83pi_30018.stp",
+            "start_index": 17000,
+            "length": 1000
+        },
+        {
+            "file_id": 18,
+            "tfrecord_file": "raw_00018.tfrecord",
+            "original_file_name": "P125_83pi_30019.stp",
+            "start_index": 18000,
+            "length": 1000
+        },
+        {
+            "file_id": 19,
+            "tfrecord_file": "raw_00019.tfrecord",
+            "original_file_name": "P125_83pi_30020.stp",
+            "start_index": 19000,
+            "length": 1000
+        },
+        {
+            "file_id": 20,
+            "tfrecord_file": "raw_00020.tfrecord",
+            "original_file_name": "P125_83pi_30021.stp",
+            "start_index": 20000,
+            "length": 1000
+        },
+        {
+            "file_id": 21,
+            "tfrecord_file": "raw_00021.tfrecord",
+            "original_file_name": "P125_83pi_30022.stp",
+            "start_index": 21000,
+            "length": 1000
+        },
+        {
+            "file_id": 22,
+            "tfrecord_file": "raw_00022.tfrecord",
+            "original_file_name": "P125_83pi_30023.stp",
+            "start_index": 22000,
+            "length": 1000
+        },
+        {
+            "file_id": 23,
+            "tfrecord_file": "raw_00023.tfrecord",
+            "original_file_name": "P125_83pi_30024.stp",
+            "start_index": 23000,
+            "length": 1000
+        },
+        {
+            "file_id": 24,
+            "tfrecord_file": "raw_00024.tfrecord",
+            "original_file_name": "P125_83pi_30025.stp",
+            "start_index": 24000,
+            "length": 1000
+        },
+        {
+            "file_id": 25,
+            "tfrecord_file": "raw_00025.tfrecord",
+            "original_file_name": "P125_83pi_30026.stp",
+            "start_index": 25000,
+            "length": 1000
+        },
+        {
+            "file_id": 26,
+            "tfrecord_file": "raw_00026.tfrecord",
+            "original_file_name": "P125_83pi_30027.stp",
+            "start_index": 26000,
+            "length": 1000
+        },
+        {
+            "file_id": 27,
+            "tfrecord_file": "raw_00027.tfrecord",
+            "original_file_name": "P125_83pi_30028.stp",
+            "start_index": 27000,
+            "length": 1000
+        },
+        {
+            "file_id": 28,
+            "tfrecord_file": "raw_00028.tfrecord",
+            "original_file_name": "P125_83pi_30029.stp",
+            "start_index": 28000,
+            "length": 1000
+        },
+        {
+            "file_id": 29,
+            "tfrecord_file": "raw_00029.tfrecord",
+            "original_file_name": "P125_83pi_30030.stp",
+            "start_index": 29000,
+            "length": 1000
+        },
+        {
+            "file_id": 30,
+            "tfrecord_file": "raw_00030.tfrecord",
+            "original_file_name": "P125_83pi_30031.stp",
+            "start_index": 30000,
+            "length": 1000
+        },
+        {
+            "file_id": 31,
+            "tfrecord_file": "raw_00031.tfrecord",
+            "original_file_name": "P125_83pi_30032.stp",
+            "start_index": 31000,
+            "length": 1000
+        },
+        {
+            "file_id": 32,
+            "tfrecord_file": "raw_00032.tfrecord",
+            "original_file_name": "P125_83pi_30033.stp",
+            "start_index": 32000,
+            "length": 1000
+        },
+        {
+            "file_id": 33,
+            "tfrecord_file": "raw_00033.tfrecord",
+            "original_file_name": "P125_83pi_30034.stp",
+            "start_index": 33000,
+            "length": 1000
+        },
+        {
+            "file_id": 34,
+            "tfrecord_file": "raw_00034.tfrecord",
+            "original_file_name": "P125_83pi_30035.stp",
+            "start_index": 34000,
+            "length": 1000
+        },
+        {
+            "file_id": 35,
+            "tfrecord_file": "raw_00035.tfrecord",
+            "original_file_name": "P125_83pi_30036.stp",
+            "start_index": 35000,
+            "length": 1000
+        },
+        {
+            "file_id": 36,
+            "tfrecord_file": "raw_00036.tfrecord",
+            "original_file_name": "P125_83pi_30037.stp",
+            "start_index": 36000,
+            "length": 1000
+        },
+        {
+            "file_id": 37,
+            "tfrecord_file": "raw_00037.tfrecord",
+            "original_file_name": "P125_83pi_30038.stp",
+            "start_index": 37000,
+            "length": 1000
+        },
+        {
+            "file_id": 38,
+            "tfrecord_file": "raw_00038.tfrecord",
+            "original_file_name": "P125_83pi_30039.stp",
+            "start_index": 38000,
+            "length": 1000
+        },
+        {
+            "file_id": 39,
+            "tfrecord_file": "raw_00039.tfrecord",
+            "original_file_name": "P125_83pi_30040.stp",
+            "start_index": 39000,
+            "length": 1000
+        },
+        {
+            "file_id": 40,
+            "tfrecord_file": "raw_00040.tfrecord",
+            "original_file_name": "P125_83pi_30041.stp",
+            "start_index": 40000,
+            "length": 1000
+        },
+        {
+            "file_id": 41,
+            "tfrecord_file": "raw_00041.tfrecord",
+            "original_file_name": "P125_83pi_30042.stp",
+            "start_index": 41000,
+            "length": 1000
+        },
+        {
+            "file_id": 42,
+            "tfrecord_file": "raw_00042.tfrecord",
+            "original_file_name": "P125_83pi_30043.stp",
+            "start_index": 42000,
+            "length": 1000
+        },
+        {
+            "file_id": 43,
+            "tfrecord_file": "raw_00043.tfrecord",
+            "original_file_name": "P125_83pi_30044.stp",
+            "start_index": 43000,
+            "length": 1000
+        },
+        {
+            "file_id": 44,
+            "tfrecord_file": "raw_00044.tfrecord",
+            "original_file_name": "P125_83pi_30045.stp",
+            "start_index": 44000,
+            "length": 1000
+        },
+        {
+            "file_id": 45,
+            "tfrecord_file": "raw_00045.tfrecord",
+            "original_file_name": "P125_83pi_30046.stp",
+            "start_index": 45000,
+            "length": 1000
+        },
+        {
+            "file_id": 46,
+            "tfrecord_file": "raw_00046.tfrecord",
+            "original_file_name": "P125_83pi_30047.stp",
+            "start_index": 46000,
+            "length": 1000
+        },
+        {
+            "file_id": 47,
+            "tfrecord_file": "raw_00047.tfrecord",
+            "original_file_name": "P125_83pi_30048.stp",
+            "start_index": 47000,
+            "length": 1000
+        },
+        {
+            "file_id": 48,
+            "tfrecord_file": "raw_00048.tfrecord",
+            "original_file_name": "P125_83pi_30049.stp",
+            "start_index": 48000,
+            "length": 1000
+        },
+        {
+            "file_id": 49,
+            "tfrecord_file": "raw_00049.tfrecord",
+            "original_file_name": "P125_83pi_30050.stp",
+            "start_index": 49000,
+            "length": 1000
+        },
+        {
+            "file_id": 50,
+            "tfrecord_file": "raw_00050.tfrecord",
+            "original_file_name": "P125_83pi_30051.stp",
+            "start_index": 50000,
+            "length": 1000
+        },
+        {
+            "file_id": 51,
+            "tfrecord_file": "raw_00051.tfrecord",
+            "original_file_name": "P125_83pi_30052.stp",
+            "start_index": 51000,
+            "length": 1000
+        },
+        {
+            "file_id": 52,
+            "tfrecord_file": "raw_00052.tfrecord",
+            "original_file_name": "P125_83pi_30053.stp",
+            "start_index": 52000,
+            "length": 1000
+        },
+        {
+            "file_id": 53,
+            "tfrecord_file": "raw_00053.tfrecord",
+            "original_file_name": "P125_83pi_30054.stp",
+            "start_index": 53000,
+            "length": 1000
+        },
+        {
+            "file_id": 54,
+            "tfrecord_file": "raw_00054.tfrecord",
+            "original_file_name": "P125_83pi_30055.stp",
+            "start_index": 54000,
+            "length": 1000
+        },
+        {
+            "file_id": 55,
+            "tfrecord_file": "raw_00055.tfrecord",
+            "original_file_name": "P125_83pi_30056.stp",
+            "start_index": 55000,
+            "length": 1000
+        },
+        {
+            "file_id": 56,
+            "tfrecord_file": "raw_00056.tfrecord",
+            "original_file_name": "P125_83pi_30057.stp",
+            "start_index": 56000,
+            "length": 1000
+        },
+        {
+            "file_id": 57,
+            "tfrecord_file": "raw_00057.tfrecord",
+            "original_file_name": "P125_83pi_30058.stp",
+            "start_index": 57000,
+            "length": 1000
+        },
+        {
+            "file_id": 58,
+            "tfrecord_file": "raw_00058.tfrecord",
+            "original_file_name": "P125_83pi_30059.stp",
+            "start_index": 58000,
+            "length": 1000
+        },
+        {
+            "file_id": 59,
+            "tfrecord_file": "raw_00059.tfrecord",
+            "original_file_name": "P125_83pi_30060.stp",
+            "start_index": 59000,
+            "length": 1000
+        },
+        {
+            "file_id": 60,
+            "tfrecord_file": "raw_00060.tfrecord",
+            "original_file_name": "P125_83pi_30061.stp",
+            "start_index": 60000,
+            "length": 1000
+        },
+        {
+            "file_id": 61,
+            "tfrecord_file": "raw_00061.tfrecord",
+            "original_file_name": "P125_83pi_30062.stp",
+            "start_index": 61000,
+            "length": 1000
+        },
+        {
+            "file_id": 62,
+            "tfrecord_file": "raw_00062.tfrecord",
+            "original_file_name": "P125_83pi_30063.stp",
+            "start_index": 62000,
+            "length": 1000
+        },
+        {
+            "file_id": 63,
+            "tfrecord_file": "raw_00063.tfrecord",
+            "original_file_name": "P125_83pi_30064.stp",
+            "start_index": 63000,
+            "length": 1000
+        },
+        {
+            "file_id": 64,
+            "tfrecord_file": "raw_00064.tfrecord",
+            "original_file_name": "P125_83pi_30065.stp",
+            "start_index": 64000,
+            "length": 1000
+        },
+        {
+            "file_id": 65,
+            "tfrecord_file": "raw_00065.tfrecord",
+            "original_file_name": "P125_83pi_30066.stp",
+            "start_index": 65000,
+            "length": 1000
+        },
+        {
+            "file_id": 66,
+            "tfrecord_file": "raw_00066.tfrecord",
+            "original_file_name": "P125_83pi_30067.stp",
+            "start_index": 66000,
+            "length": 1000
+        },
+        {
+            "file_id": 67,
+            "tfrecord_file": "raw_00067.tfrecord",
+            "original_file_name": "P125_83pi_30068.stp",
+            "start_index": 67000,
+            "length": 1000
+        },
+        {
+            "file_id": 68,
+            "tfrecord_file": "raw_00068.tfrecord",
+            "original_file_name": "P125_83pi_30069.stp",
+            "start_index": 68000,
+            "length": 1000
+        },
+        {
+            "file_id": 69,
+            "tfrecord_file": "raw_00069.tfrecord",
+            "original_file_name": "P125_83pi_30070.stp",
+            "start_index": 69000,
+            "length": 1000
+        },
+        {
+            "file_id": 70,
+            "tfrecord_file": "raw_00070.tfrecord",
+            "original_file_name": "P125_83pi_30071.stp",
+            "start_index": 70000,
+            "length": 1000
+        },
+        {
+            "file_id": 71,
+            "tfrecord_file": "raw_00071.tfrecord",
+            "original_file_name": "P125_83pi_30072.stp",
+            "start_index": 71000,
+            "length": 1000
+        },
+        {
+            "file_id": 72,
+            "tfrecord_file": "raw_00072.tfrecord",
+            "original_file_name": "P125_83pi_30073.stp",
+            "start_index": 72000,
+            "length": 1000
+        },
+        {
+            "file_id": 73,
+            "tfrecord_file": "raw_00073.tfrecord",
+            "original_file_name": "P125_83pi_30074.stp",
+            "start_index": 73000,
+            "length": 1000
+        },
+        {
+            "file_id": 74,
+            "tfrecord_file": "raw_00074.tfrecord",
+            "original_file_name": "P125_83pi_30075.stp",
+            "start_index": 74000,
+            "length": 1000
+        },
+        {
+            "file_id": 75,
+            "tfrecord_file": "raw_00075.tfrecord",
+            "original_file_name": "P125_83pi_30076.stp",
+            "start_index": 75000,
+            "length": 1000
+        },
+        {
+            "file_id": 76,
+            "tfrecord_file": "raw_00076.tfrecord",
+            "original_file_name": "P125_83pi_30077.stp",
+            "start_index": 76000,
+            "length": 1000
+        },
+        {
+            "file_id": 77,
+            "tfrecord_file": "raw_00077.tfrecord",
+            "original_file_name": "P125_83pi_30078.stp",
+            "start_index": 77000,
+            "length": 1000
+        },
+        {
+            "file_id": 78,
+            "tfrecord_file": "raw_00078.tfrecord",
+            "original_file_name": "P125_83pi_30079.stp",
+            "start_index": 78000,
+            "length": 1000
+        },
+        {
+            "file_id": 79,
+            "tfrecord_file": "raw_00079.tfrecord",
+            "original_file_name": "P125_83pi_30080.stp",
+            "start_index": 79000,
+            "length": 1000
+        },
+        {
+            "file_id": 80,
+            "tfrecord_file": "raw_00080.tfrecord",
+            "original_file_name": "P125_83pi_30081.stp",
+            "start_index": 80000,
+            "length": 1000
+        },
+        {
+            "file_id": 81,
+            "tfrecord_file": "raw_00081.tfrecord",
+            "original_file_name": "P125_83pi_30082.stp",
+            "start_index": 81000,
+            "length": 1000
+        },
+        {
+            "file_id": 82,
+            "tfrecord_file": "raw_00082.tfrecord",
+            "original_file_name": "P125_83pi_30083.stp",
+            "start_index": 82000,
+            "length": 1000
+        },
+        {
+            "file_id": 83,
+            "tfrecord_file": "raw_00083.tfrecord",
+            "original_file_name": "P125_83pi_30084.stp",
+            "start_index": 83000,
+            "length": 1000
+        },
+        {
+            "file_id": 84,
+            "tfrecord_file": "raw_00084.tfrecord",
+            "original_file_name": "P125_83pi_30085.stp",
+            "start_index": 84000,
+            "length": 1000
+        },
+        {
+            "file_id": 85,
+            "tfrecord_file": "raw_00085.tfrecord",
+            "original_file_name": "P125_83pi_30086.stp",
+            "start_index": 85000,
+            "length": 1000
+        },
+        {
+            "file_id": 86,
+            "tfrecord_file": "raw_00086.tfrecord",
+            "original_file_name": "P125_83pi_30087.stp",
+            "start_index": 86000,
+            "length": 1000
+        },
+        {
+            "file_id": 87,
+            "tfrecord_file": "raw_00087.tfrecord",
+            "original_file_name": "P125_83pi_30088.stp",
+            "start_index": 87000,
+            "length": 1000
+        },
+        {
+            "file_id": 88,
+            "tfrecord_file": "raw_00088.tfrecord",
+            "original_file_name": "P125_83pi_30089.stp",
+            "start_index": 88000,
+            "length": 1000
+        },
+        {
+            "file_id": 89,
+            "tfrecord_file": "raw_00089.tfrecord",
+            "original_file_name": "P125_83pi_30090.stp",
+            "start_index": 89000,
+            "length": 1000
+        },
+        {
+            "file_id": 90,
+            "tfrecord_file": "raw_00090.tfrecord",
+            "original_file_name": "P125_83pi_30091.stp",
+            "start_index": 90000,
+            "length": 1000
+        },
+        {
+            "file_id": 91,
+            "tfrecord_file": "raw_00091.tfrecord",
+            "original_file_name": "P125_83pi_30092.stp",
+            "start_index": 91000,
+            "length": 1000
+        },
+        {
+            "file_id": 92,
+            "tfrecord_file": "raw_00092.tfrecord",
+            "original_file_name": "P125_83pi_30093.stp",
+            "start_index": 92000,
+            "length": 1000
+        },
+        {
+            "file_id": 93,
+            "tfrecord_file": "raw_00093.tfrecord",
+            "original_file_name": "P125_83pi_30094.stp",
+            "start_index": 93000,
+            "length": 1000
+        },
+        {
+            "file_id": 94,
+            "tfrecord_file": "raw_00094.tfrecord",
+            "original_file_name": "P125_83pi_30095.stp",
+            "start_index": 94000,
+            "length": 1000
+        },
+        {
+            "file_id": 95,
+            "tfrecord_file": "raw_00095.tfrecord",
+            "original_file_name": "P125_83pi_30096.stp",
+            "start_index": 95000,
+            "length": 1000
+        },
+        {
+            "file_id": 96,
+            "tfrecord_file": "raw_00096.tfrecord",
+            "original_file_name": "P125_83pi_30097.stp",
+            "start_index": 96000,
+            "length": 1000
+        },
+        {
+            "file_id": 97,
+            "tfrecord_file": "raw_00097.tfrecord",
+            "original_file_name": "P125_83pi_30098.stp",
+            "start_index": 97000,
+            "length": 1000
+        },
+        {
+            "file_id": 98,
+            "tfrecord_file": "raw_00098.tfrecord",
+            "original_file_name": "P125_83pi_30099.stp",
+            "start_index": 98000,
+            "length": 1000
+        },
+        {
+            "file_id": 99,
+            "tfrecord_file": "raw_00099.tfrecord",
+            "original_file_name": "P125_83pi_30100.stp",
+            "start_index": 99000,
+            "length": 1000
+        },
+        {
+            "file_id": 100,
+            "tfrecord_file": "raw_00100.tfrecord",
+            "original_file_name": "P125_83pi_30101.stp",
+            "start_index": 100000,
+            "length": 1000
+        },
+        {
+            "file_id": 101,
+            "tfrecord_file": "raw_00101.tfrecord",
+            "original_file_name": "P125_83pi_30102.stp",
+            "start_index": 101000,
+            "length": 1000
+        },
+        {
+            "file_id": 102,
+            "tfrecord_file": "raw_00102.tfrecord",
+            "original_file_name": "P125_83pi_30103.stp",
+            "start_index": 102000,
+            "length": 1000
+        },
+        {
+            "file_id": 103,
+            "tfrecord_file": "raw_00103.tfrecord",
+            "original_file_name": "P125_83pi_30104.stp",
+            "start_index": 103000,
+            "length": 1000
+        },
+        {
+            "file_id": 104,
+            "tfrecord_file": "raw_00104.tfrecord",
+            "original_file_name": "P125_83pi_30105.stp",
+            "start_index": 104000,
+            "length": 1000
+        },
+        {
+            "file_id": 105,
+            "tfrecord_file": "raw_00105.tfrecord",
+            "original_file_name": "P125_83pi_30106.stp",
+            "start_index": 105000,
+            "length": 1000
+        }
+    ]
+}
