@@ -1,0 +1,162 @@
+{
+ "windows": {
+  "train": 3041,
+  "val": 651,
+  "test": 653,
+  "input": 300,
+  "output_max": 300,
+  "stride": 10
+ },
+ "normalisation": {
+  "mean": 0.9274324178695679,
+  "std": 0.10147347301244736,
+  "source": "training inputs of the earlier stages' windows"
+ },
+ "persistence_check_horizon10_earlier_windows": 0.10278110206127167,
+ "linear_fit_s": 0.048439832986332476,
+ "horizons": [
+  10,
+  30,
+  100,
+  300
+ ],
+ "part_a": [
+  {
+   "horizon": 10,
+   "persistence": 0.09413263127207756,
+   "linear_AR": 0.0003944722813655966,
+   "gru_mean": 0.028905095532536507,
+   "gru_min": 0.026772379875183105,
+   "gru_max": 0.030674666166305542,
+   "gru_range": 0.0039022862911224365,
+   "gru_over_linear": 73.27535266222492,
+   "gru_beats_linear": false,
+   "gru_beats_persistence": true,
+   "gru_train_s_mean": 72.46666666666667
+  },
+  {
+   "horizon": 30,
+   "persistence": 0.24108518386880556,
+   "linear_AR": 0.03513265556613688,
+   "gru_mean": 0.16731926798820496,
+   "gru_min": 0.16426284611225128,
+   "gru_max": 0.17225617170333862,
+   "gru_range": 0.007993325591087341,
+   "gru_over_linear": 4.762499882003741,
+   "gru_beats_linear": false,
+   "gru_beats_persistence": true,
+   "gru_train_s_mean": 66.43333333333334
+  },
+  {
+   "horizon": 100,
+   "persistence": 0.5521702945977449,
+   "linear_AR": 0.3857904349513405,
+   "gru_mean": 0.5012899736563364,
+   "gru_min": 0.4989562928676605,
+   "gru_max": 0.5028061866760254,
+   "gru_range": 0.003849893808364868,
+   "gru_over_linear": 1.2993841428949988,
+   "gru_beats_linear": false,
+   "gru_beats_persistence": true,
+   "gru_train_s_mean": 33.96666666666667
+  },
+  {
+   "horizon": 300,
+   "persistence": 0.8712301526715358,
+   "linear_AR": 0.683777253091366,
+   "gru_mean": 0.7306032776832581,
+   "gru_min": 0.7302795648574829,
+   "gru_max": 0.7308928370475769,
+   "gru_range": 0.0006132721900939941,
+   "gru_over_linear": 1.068481401480074,
+   "gru_beats_linear": false,
+   "gru_beats_persistence": true,
+   "gru_train_s_mean": 29.766666666666666
+  }
+ ],
+ "part_b": [
+  {
+   "model": "persistence",
+   "params": 0,
+   "train_s_mean": 0.0,
+   "mae_mean": 0.09413263127207756,
+   "mae_min": NaN,
+   "mae_max": NaN,
+   "seed_range": NaN,
+   "beats_persistence": NaN,
+   "beats_linear": NaN,
+   "reaches_gru": NaN,
+   "earlier_run_mae_mean": 0.102781094610691,
+   "earlier_run_mae_min": NaN,
+   "earlier_run_mae_max": NaN
+  },
+  {
+   "model": "linear AR (least squares)",
+   "params": 3010,
+   "train_s_mean": 0.048,
+   "mae_mean": 0.0003944722813655966,
+   "mae_min": NaN,
+   "mae_max": NaN,
+   "seed_range": NaN,
+   "beats_persistence": NaN,
+   "beats_linear": NaN,
+   "reaches_gru": NaN,
+   "earlier_run_mae_mean": 0.000399160100814,
+   "earlier_run_mae_min": NaN,
+   "earlier_run_mae_max": NaN
+  },
+  {
+   "model": "GRU (part a, horizon 10)",
+   "params": 3690,
+   "train_s_mean": 72.46666666666667,
+   "mae_mean": 0.028905095532536507,
+   "mae_min": 0.026772379875183105,
+   "mae_max": 0.030674666166305542,
+   "seed_range": 0.0039022862911224365,
+   "beats_persistence": true,
+   "beats_linear": false,
+   "reaches_gru": true,
+   "earlier_run_mae_mean": 0.0306866733978192,
+   "earlier_run_mae_min": 0.0287716779857873,
+   "earlier_run_mae_max": 0.0316605456173419
+  },
+  {
+   "model": "Transformer, earlier setting (1e-4, 50 epochs)",
+   "params": 31562,
+   "train_s_mean": 139.0,
+   "mae_mean": 0.10383184254169464,
+   "mae_min": 0.10223107039928436,
+   "mae_max": 0.10619346052408218,
+   "seed_range": 0.003962390124797821,
+   "beats_persistence": false,
+   "beats_linear": false,
+   "reaches_gru": false,
+   "earlier_run_mae_mean": 0.1031151910622914,
+   "earlier_run_mae_min": 0.1011221036314964,
+   "earlier_run_mae_max": 0.10634096711874
+  },
+  {
+   "model": "Transformer, tuned (1e-3, up to 100 epochs)",
+   "params": 31562,
+   "train_s_mean": 160.4333333333333,
+   "mae_mean": 0.06437509879469872,
+   "mae_min": 0.05553935095667839,
+   "mae_max": 0.0701824277639389,
+   "seed_range": 0.014643076807260513,
+   "beats_persistence": true,
+   "beats_linear": false,
+   "reaches_gru": false,
+   "earlier_run_mae_mean": NaN,
+   "earlier_run_mae_min": NaN,
+   "earlier_run_mae_max": NaN
+  }
+ ],
+ "longest_training_s": 204.3,
+ "wall_s": 1518.0,
+ "devices": {
+  "GRU": "/GPU:0",
+  "Simple Transformer": "/GPU:0"
+ },
+ "tensorflow": "2.18.1",
+ "keras": "3.6.0"
+}

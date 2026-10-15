@@ -1,0 +1,7 @@
+model,seed,device,params,epochs,best_epoch,train_s,test_mae,test_rmse
+"Transformer, earlier setting (1e-4, 50 epochs)",0,/GPU:0,31562,50,47,132.0,0.10307099670171738,0.15865615010261536
+"Transformer, tuned (1e-3, up to 100 epochs)",0,/GPU:0,31562,75,67,204.3,0.05553935095667839,0.09345974773168564
+"Transformer, earlier setting (1e-4, 50 epochs)",1,/GPU:0,31562,50,50,141.3,0.10223107039928436,0.15967035293579102
+"Transformer, tuned (1e-3, up to 100 epochs)",1,/GPU:0,31562,52,44,147.1,0.06740351766347885,0.10529311746358871
+"Transformer, earlier setting (1e-4, 50 epochs)",2,/GPU:0,31562,50,46,143.7,0.10619346052408218,0.1641147881746292
+"Transformer, tuned (1e-3, up to 100 epochs)",2,/GPU:0,31562,45,37,129.9,0.0701824277639389,0.10880467295646667
