@@ -7832,8 +7832,8 @@ test prediction and visualization
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Stage-3-%E2%80%94-Forecasting-the-near-wall-signal-with-a-small-Transformer">Stage 3 — Forecasting the near-wall signal with a small Transformer<a class="anchor-link" href="#Stage-3-%E2%80%94-Forecasting-the-near-wall-signal-with-a-small-Transformer">¶</a></h1><p><strong>Portfolio project: forecasting a turbulent channel-flow signal with recurrent networks and a Transformer.</strong></p>
-<p>This notebook poses the Stage 2 task to a Transformer encoder: the same windows (300 past values → the next 10, stride 10), the same chronological split and normalisation. The scalar signal is projected to 32 features, given a learned position embedding, passed through two encoder blocks (four-head self-attention and a feed-forward layer, each with a residual connection and layer normalisation), and the last time step and the time average together feed a head that predicts all 10 future values at once (31,562 parameters). I solve its five exercises (model size, output length, input length, recurrent models on the same windows, predicting the correction to persistence), repeat every training with the seeds 0, 1 and 2, and record a training animation.</p>
-<p><strong>How it connects.</strong> It reads <code>data/utmp_y50_raw_timeseries.h5</code> from Stage 1 through <code>cfd_data_tools.py</code>; its Exercise 4 rebuilds Stage 2's recurrent networks with 10-value outputs. Stage 4 puts the Transformer and the recurrent networks on the same test period next to a linear autoregressive model fitted by least squares.</p>
+<p>This notebook poses the Stage 2 task to a Transformer encoder: the same windows (300 past values → the next 10, stride 10), the same chronological split and normalisation. The scalar signal is projected to 32 features, given a learned position embedding, passed through two encoder blocks (four-head self-attention and a feed-forward layer, each with a residual connection and layer normalisation), and the last time step and the time average together feed a head that predicts all 10 future values at once (31,562 parameters). I solve its five experiments (model size, output length, input length, recurrent models on the same windows, predicting the correction to persistence), repeat every training with the seeds 0, 1 and 2, and record a training animation.</p>
+<p><strong>How it connects.</strong> It reads <code>data/utmp_y50_raw_timeseries.h5</code> from Stage 1 through <code>cfd_data_tools.py</code>; its Experiment 4 rebuilds Stage 2's recurrent networks with 10-value outputs. Stage 4 puts the Transformer and the recurrent networks on the same test period next to a linear autoregressive model fitted by least squares.</p>
 <p><strong>About the outputs.</strong> The outputs below come from my single run of this notebook (Apple M3 Max, 2026-10-13; the Transformer, GRU and LSTM on the Apple GPU, SimpleRNN on the CPU, chosen by timing one training step on each). In this base run (seed 0) the Transformer is just below persistence (0.0969 against 0.1028); over the three seeds it is 0.1017 ± 0.0047, so it does not beat persistence. Afterwards I changed only text for this repository: this cell and the paths cell, the path lines (data from <code>../data/</code>, tables to <code>../results/03_transformer_forecasting/</code>, checkpoints to <code>../models/03_transformer_forecasting/</code>, animation to <code>../animations/03_*</code>), comments, labels renamed to "base" and printed text.</p>
 </div>
 </div>
@@ -29066,7 +29066,7 @@ Step 10: 0.184391
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="15.-Exercises">15. Exercises<a class="anchor-link" href="#15.-Exercises">¶</a></h1><h2 id="Exercise-1-%E2%80%94-Change-the-Transformer-size">Exercise 1 — Change the Transformer size<a class="anchor-link" href="#Exercise-1-%E2%80%94-Change-the-Transformer-size">¶</a></h2><p>Try:</p>
+<h1 id="15.-Experiments">15. Experiments<a class="anchor-link" href="#15.-Experiments">¶</a></h1><h2 id="Experiment-1-%E2%80%94-Change-the-Transformer-size">Experiment 1 — Change the Transformer size<a class="anchor-link" href="#Experiment-1-%E2%80%94-Change-the-Transformer-size">¶</a></h2><p>Try:</p>
 <div class="highlight"><pre><span></span><span class="n">d_model</span> <span class="o">=</span> <span class="mi">16</span>
 <span class="n">num_heads</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">num_blocks</span> <span class="o">=</span> <span class="mi">1</span>
@@ -29078,7 +29078,7 @@ Step 10: 0.184391
 </pre></div>
 <p>Compare the validation loss and test MAE.</p>
 <hr/>
-<h2 id="Exercise-2-%E2%80%94-Change-the-prediction-horizon">Exercise 2 — Change the prediction horizon<a class="anchor-link" href="#Exercise-2-%E2%80%94-Change-the-prediction-horizon">¶</a></h2><p>Try:</p>
+<h2 id="Experiment-2-%E2%80%94-Change-the-prediction-horizon">Experiment 2 — Change the prediction horizon<a class="anchor-link" href="#Experiment-2-%E2%80%94-Change-the-prediction-horizon">¶</a></h2><p>Try:</p>
 <div class="highlight"><pre><span></span><span class="n">output_window</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">output_window</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">output_window</span> <span class="o">=</span> <span class="mi">10</span>
@@ -29086,14 +29086,14 @@ Step 10: 0.184391
 </pre></div>
 <p>How does the error change with the prediction horizon?</p>
 <hr/>
-<h2 id="Exercise-3-%E2%80%94-Change-the-input-window">Exercise 3 — Change the input window<a class="anchor-link" href="#Exercise-3-%E2%80%94-Change-the-input-window">¶</a></h2><p>Try:</p>
+<h2 id="Experiment-3-%E2%80%94-Change-the-input-window">Experiment 3 — Change the input window<a class="anchor-link" href="#Experiment-3-%E2%80%94-Change-the-input-window">¶</a></h2><p>Try:</p>
 <div class="highlight"><pre><span></span><span class="n">input_window</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">input_window</span> <span class="o">=</span> <span class="mi">300</span>
 <span class="n">input_window</span> <span class="o">=</span> <span class="mi">600</span>
 </pre></div>
 <p>Does the Transformer benefit from a longer past history?</p>
 <hr/>
-<h2 id="Exercise-4-%E2%80%94-Compare-against-recurrent-models">Exercise 4 — Compare against recurrent models<a class="anchor-link" href="#Exercise-4-%E2%80%94-Compare-against-recurrent-models">¶</a></h2><p>Compare the Transformer with:</p>
+<h2 id="Experiment-4-%E2%80%94-Compare-against-recurrent-models">Experiment 4 — Compare against recurrent models<a class="anchor-link" href="#Experiment-4-%E2%80%94-Compare-against-recurrent-models">¶</a></h2><p>Compare the Transformer with:</p>
 <div class="highlight"><pre><span></span>SimpleRNN
 GRU
 LSTM
@@ -29102,7 +29102,7 @@ Stacked LSTM
 </pre></div>
 <p>Use the same training, validation, and test datasets.</p>
 <hr/>
-<h2 id="Exercise-5-%E2%80%94-Residual-forecasting">Exercise 5 — Residual forecasting<a class="anchor-link" href="#Exercise-5-%E2%80%94-Residual-forecasting">¶</a></h2><p>Instead of predicting the future signal directly, train the model to predict the correction relative to persistence:</p>
+<h2 id="Experiment-5-%E2%80%94-Residual-forecasting">Experiment 5 — Residual forecasting<a class="anchor-link" href="#Experiment-5-%E2%80%94-Residual-forecasting">¶</a></h2><p>Instead of predicting the future signal directly, train the model to predict the correction relative to persistence:</p>
 <div class="highlight"><pre><span></span>target = future signal - last input value
 </pre></div>
 <p>Then reconstruct the prediction as:</p>
@@ -29119,7 +29119,7 @@ Stacked LSTM
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Exercise-solutions">Exercise solutions<a class="anchor-link" href="#Exercise-solutions">¶</a></h1><p>The five exercises of Section 15, solved with the notebook's own loader (<code>loader.prepare_forecasting_data</code>), <code>create_simple_transformer</code>, callbacks (early stopping patience 8, learning-rate halving patience 4) and data split. All errors are test MAE on the normalised signal over the whole predicted window, next to persistence on the same windows. <strong>Reduced budget:</strong> each exercise model trains for at most 30 epochs instead of the notebook's 50 (early stopping usually ends earlier); the notebook's own model is listed where it is the reference. Compute plan: 9 trainings of at most 30 epochs with early stopping, about 15 minutes on the Apple GPU.</p>
+<h1 id="Experiment-solutions">Experiment solutions<a class="anchor-link" href="#Experiment-solutions">¶</a></h1><p>The five experiments of Section 15, solved with the notebook's own loader (<code>loader.prepare_forecasting_data</code>), <code>create_simple_transformer</code>, callbacks (early stopping patience 8, learning-rate halving patience 4) and data split. All errors are test MAE on the normalised signal over the whole predicted window, next to persistence on the same windows. <strong>Reduced budget:</strong> each experiment model trains for at most 30 epochs instead of the notebook's 50 (early stopping usually ends earlier); the notebook's own model is listed where it is the reference. Compute plan: 9 trainings of at most 30 epochs with early stopping, about 15 minutes on the Apple GPU.</p>
 </div>
 </div>
 </div>
@@ -29187,7 +29187,7 @@ signal_std: 0.10147347
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Exercise-1-%E2%80%94-solution">Exercise 1 — solution<a class="anchor-link" href="#Exercise-1-%E2%80%94-solution">¶</a></h2><p>A smaller (d_model 16, 2 heads, 1 block) and a larger (d_model 64, 4 heads, 3 blocks) Transformer, other settings as in the base, on the notebook's data.</p>
+<h2 id="Experiment-1-%E2%80%94-solution">Experiment 1 — solution<a class="anchor-link" href="#Experiment-1-%E2%80%94-solution">¶</a></h2><p>A smaller (d_model 16, 2 heads, 1 block) and a larger (d_model 64, 4 heads, 3 blocks) Transformer, other settings as in the base, on the notebook's data.</p>
 </div>
 </div>
 </div>
@@ -29239,7 +29239,7 @@ Result (Exercise 1): test MAE base: d_model 32, 4 heads, 2 blocks: 0.0969 (val l
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Exercise-2-%E2%80%94-solution">Exercise 2 — solution<a class="anchor-link" href="#Exercise-2-%E2%80%94-solution">¶</a></h2><p>Output windows of 1, 5 and 20 future values (10 is the notebook's run), input window 300, notebook's Transformer configuration.</p>
+<h2 id="Experiment-2-%E2%80%94-solution">Experiment 2 — solution<a class="anchor-link" href="#Experiment-2-%E2%80%94-solution">¶</a></h2><p>Output windows of 1, 5 and 20 future values (10 is the notebook's run), input window 300, notebook's Transformer configuration.</p>
 </div>
 </div>
 </div>
@@ -29325,7 +29325,7 @@ Result (Exercise 2): test MAE (Transformer / persistence) window 1: 0.0319 / 0.0
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Exercise-3-%E2%80%94-solution">Exercise 3 — solution<a class="anchor-link" href="#Exercise-3-%E2%80%94-solution">¶</a></h2><p>Input windows of 100 and 600 past samples (300 is the notebook's run), output window 10.</p>
+<h2 id="Experiment-3-%E2%80%94-solution">Experiment 3 — solution<a class="anchor-link" href="#Experiment-3-%E2%80%94-solution">¶</a></h2><p>Input windows of 100 and 600 past samples (300 is the notebook's run), output window 10.</p>
 </div>
 </div>
 </div>
@@ -29397,7 +29397,7 @@ Result (Exercise 3): test MAE input 100: 0.0959; input 300: 0.0969; input 600: 0
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Exercise-4-%E2%80%94-solution">Exercise 4 — solution<a class="anchor-link" href="#Exercise-4-%E2%80%94-solution">¶</a></h2><p>Recurrent models on the same datasets (input 300, output 10): SimpleRNN, GRU and LSTM (hidden size 32, as in Stage 2; three configurations), each ending in <code>Dense(output_window)</code> so that they predict the same 10-value window, trained with the same loss (MSE), callbacks and epoch cap; Adam 1e-3 with clipnorm 1, the learning rate of Stage 2. The SimpleRNN is trained on the CPU because that layer is far slower (15.5 s against 8.6 ms per training step) on the Apple GPU; the other models run on the GPU.</p>
+<h2 id="Experiment-4-%E2%80%94-solution">Experiment 4 — solution<a class="anchor-link" href="#Experiment-4-%E2%80%94-solution">¶</a></h2><p>Recurrent models on the same datasets (input 300, output 10): SimpleRNN, GRU and LSTM (hidden size 32, as in Stage 2; three configurations), each ending in <code>Dense(output_window)</code> so that they predict the same 10-value window, trained with the same loss (MSE), callbacks and epoch cap; Adam 1e-3 with clipnorm 1, the learning rate of Stage 2. The SimpleRNN is trained on the CPU because that layer is far slower (15.5 s against 8.6 ms per training step) on the Apple GPU; the other models run on the GPU.</p>
 </div>
 </div>
 </div>
@@ -29460,7 +29460,7 @@ Result (Exercise 4): test MAE Simple Transformer (base): 0.0969; SimpleRNN (CPU)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Exercise-5-%E2%80%94-solution">Exercise 5 — solution<a class="anchor-link" href="#Exercise-5-%E2%80%94-solution">¶</a></h2><p>Residual forecasting: the notebook's Transformer is trained on <code>target = future window - last input value</code>, and the prediction is reconstructed as persistence plus the predicted correction.</p>
+<h2 id="Experiment-5-%E2%80%94-solution">Experiment 5 — solution<a class="anchor-link" href="#Experiment-5-%E2%80%94-solution">¶</a></h2><p>Residual forecasting: the notebook's Transformer is trained on <code>target = future window - last input value</code>, and the prediction is reconstructed as persistence plus the predicted correction.</p>
 </div>
 </div>
 </div>
@@ -29530,12 +29530,12 @@ Result (Exercise 4): test MAE Simple Transformer (base): 0.0969; SimpleRNN (CPU)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Summary-of-the-exercise-solutions">Summary of the exercise solutions<a class="anchor-link" href="#Summary-of-the-exercise-solutions">¶</a></h2><ul>
-<li><strong>Exercise 1:</strong> smaller and larger Transformers against the notebook's.</li>
-<li><strong>Exercise 2:</strong> error against the length of the predicted window.</li>
-<li><strong>Exercise 3:</strong> effect of a shorter or longer history.</li>
-<li><strong>Exercise 4:</strong> the Transformer against five recurrent models on the same data.</li>
-<li><strong>Exercise 5:</strong> predicting the correction to persistence instead of the signal.</li>
+<h2 id="Summary-of-the-experiment-solutions">Summary of the experiment solutions<a class="anchor-link" href="#Summary-of-the-experiment-solutions">¶</a></h2><ul>
+<li><strong>Experiment 1:</strong> smaller and larger Transformers against the notebook's.</li>
+<li><strong>Experiment 2:</strong> error against the length of the predicted window.</li>
+<li><strong>Experiment 3:</strong> effect of a shorter or longer history.</li>
+<li><strong>Experiment 4:</strong> the Transformer against five recurrent models on the same data.</li>
+<li><strong>Experiment 5:</strong> predicting the correction to persistence instead of the signal.</li>
 </ul>
 <p>The numbers are those printed in the <code>Result</code> lines above.</p>
 </div>
@@ -29632,7 +29632,7 @@ Result (Exercise 4): test MAE Simple Transformer (base): 0.0969; SimpleRNN (CPU)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Three-seed-repeats">Three-seed repeats<a class="anchor-link" href="#Three-seed-repeats">¶</a></h1><p>Every training in this notebook takes under 15 minutes, so each is repeated with the seeds 0, 1 and 2. <strong>Seed 0 is the base run</strong>: the base Transformer training above (section 8, seeds set in the import cell) and the exercise solutions above (<code>seed=0</code>). For seeds 1 and 2, <code>tf.keras.utils.set_random_seed(seed)</code> sets the initial weights and dropout, and the training-set shuffle uses the same seed; data, split, settings and devices are unchanged. One cell per seed, then a summary: mean, standard deviation, minimum and maximum over the three seeds.</p>
+<h1 id="Three-seed-repeats">Three-seed repeats<a class="anchor-link" href="#Three-seed-repeats">¶</a></h1><p>Every training in this notebook takes under 15 minutes, so each is repeated with the seeds 0, 1 and 2. <strong>Seed 0 is the base run</strong>: the base Transformer training above (section 8, seeds set in the import cell) and the experiment solutions above (<code>seed=0</code>). For seeds 1 and 2, <code>tf.keras.utils.set_random_seed(seed)</code> sets the initial weights and dropout, and the training-set shuffle uses the same seed; data, split, settings and devices are unchanged. One cell per seed, then a summary: mean, standard deviation, minimum and maximum over the three seeds.</p>
 </div>
 </div>
 </div>

@@ -7834,7 +7834,7 @@ Output: future value of u(t)
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Stage-2-%E2%80%94-Forecasting-the-near-wall-signal-with-recurrent-networks">Stage 2 — Forecasting the near-wall signal with recurrent networks<a class="anchor-link" href="#Stage-2-%E2%80%94-Forecasting-the-near-wall-signal-with-recurrent-networks">¶</a></h1><p><strong>Portfolio project: forecasting a turbulent channel-flow signal with recurrent networks and a Transformer.</strong></p>
-<p>This notebook cuts the Stage 1 signal into windows of 300 past values and 10 future values (stride 10, never across a file join), splits them in time (70 % training, 15 % validation, 15 % test), normalises with the training mean and standard deviation, and trains four networks with early stopping: a dense network on the flattened window, SimpleRNN, GRU and LSTM (hidden size 32). All are compared with persistence (the future equals the last value). I then solve the notebook's four exercises (forecast horizon, input length, hidden size, a second GRU layer), repeat every training with the seeds 0, 1 and 2, and record a training animation of the GRU.</p>
+<p>This notebook cuts the Stage 1 signal into windows of 300 past values and 10 future values (stride 10, never across a file join), splits them in time (70 % training, 15 % validation, 15 % test), normalises with the training mean and standard deviation, and trains four networks with early stopping: a dense network on the flattened window, SimpleRNN, GRU and LSTM (hidden size 32). All are compared with persistence (the future equals the last value). I then solve the notebook's four experiments (forecast horizon, input length, hidden size, a second GRU layer), repeat every training with the seeds 0, 1 and 2, and record a training animation of the GRU.</p>
 <p><strong>How it connects.</strong> It reads <code>data/utmp_y50_raw_timeseries.h5</code> written by Stage 1 through <code>cfd_data_tools.py</code>. Stage 3 poses the same task to a Transformer on the same windows, and Stage 4 puts all networks on the same windows next to a linear autoregressive model fitted by least squares, which turns out to be far more accurate than any of them.</p>
 <p><strong>About the outputs.</strong> The outputs below come from my single run of this notebook (Apple M3 Max, 2026-10-13; dense and SimpleRNN on the CPU, GRU and LSTM on the Apple GPU, chosen by timing one training step on each). Afterwards I changed only text for this repository: this cell and the paths cell, the path lines (data from <code>../data/</code>, tables to <code>../results/02_recurrent_forecasting/</code>, checkpoints to <code>../models/02_recurrent_forecasting/</code>, animation to <code>../animations/02_*</code>), comments, labels (the original run labels renamed to "base") and printed text. One quirk is kept as written: the networks end in <code>Dense(1)</code> while each target holds 10 future values, so Keras compares one predicted value with all 10.</p>
 </div>
@@ -24997,7 +24997,7 @@ energy of a flow structure
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Exercises">Exercises<a class="anchor-link" href="#Exercises">¶</a></h1><h2 id="Exercise-1-%E2%80%94-Change-the-Forecasting-Horizon">Exercise 1 — Change the Forecasting Horizon<a class="anchor-link" href="#Exercise-1-%E2%80%94-Change-the-Forecasting-Horizon">¶</a></h2><p>Try:</p>
+<h1 id="Experiments">Experiments<a class="anchor-link" href="#Experiments">¶</a></h1><h2 id="Experiment-1-%E2%80%94-Change-the-Forecasting-Horizon">Experiment 1 — Change the Forecasting Horizon<a class="anchor-link" href="#Experiment-1-%E2%80%94-Change-the-Forecasting-Horizon">¶</a></h2><p>Try:</p>
 <div class="highlight"><pre><span></span><span class="n">horizon</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">horizon</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">horizon</span> <span class="o">=</span> <span class="mi">50</span>
@@ -25009,7 +25009,7 @@ energy of a flow structure
 <li>Which model is more robust when the horizon increases?</li>
 </ol>
 <hr/>
-<h2 id="Exercise-2-%E2%80%94-Change-the-Input-Window-Size">Exercise 2 — Change the Input Window Size<a class="anchor-link" href="#Exercise-2-%E2%80%94-Change-the-Input-Window-Size">¶</a></h2><p>Try:</p>
+<h2 id="Experiment-2-%E2%80%94-Change-the-Input-Window-Size">Experiment 2 — Change the Input Window Size<a class="anchor-link" href="#Experiment-2-%E2%80%94-Change-the-Input-Window-Size">¶</a></h2><p>Try:</p>
 <div class="highlight"><pre><span></span><span class="n">window_size</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">window_size</span> <span class="o">=</span> <span class="mi">80</span>
 <span class="n">window_size</span> <span class="o">=</span> <span class="mi">200</span>
@@ -25021,7 +25021,7 @@ energy of a flow structure
 <li>Is there a point where more history does not improve the result?</li>
 </ol>
 <hr/>
-<h2 id="Exercise-3-%E2%80%94-Change-the-Hidden-Size">Exercise 3 — Change the Hidden Size<a class="anchor-link" href="#Exercise-3-%E2%80%94-Change-the-Hidden-Size">¶</a></h2><p>Try:</p>
+<h2 id="Experiment-3-%E2%80%94-Change-the-Hidden-Size">Experiment 3 — Change the Hidden Size<a class="anchor-link" href="#Experiment-3-%E2%80%94-Change-the-Hidden-Size">¶</a></h2><p>Try:</p>
 <div class="highlight"><pre><span></span><span class="n">hidden_size</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="n">hidden_size</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">hidden_size</span> <span class="o">=</span> <span class="mi">64</span>
@@ -25033,7 +25033,7 @@ energy of a flow structure
 <li>Does training time increase?</li>
 </ol>
 <hr/>
-<h2 id="Exercise-4-%E2%80%94-Add-a-Second-Recurrent-Layer">Exercise 4 — Add a Second Recurrent Layer<a class="anchor-link" href="#Exercise-4-%E2%80%94-Add-a-Second-Recurrent-Layer">¶</a></h2><p>Modify the GRU or LSTM model to include:</p>
+<h2 id="Experiment-4-%E2%80%94-Add-a-Second-Recurrent-Layer">Experiment 4 — Add a Second Recurrent Layer<a class="anchor-link" href="#Experiment-4-%E2%80%94-Add-a-Second-Recurrent-Layer">¶</a></h2><p>Modify the GRU or LSTM model to include:</p>
 <div class="highlight"><pre><span></span><span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span>
 </pre></div>
 <p>in the first recurrent layer.</p>
@@ -25053,8 +25053,8 @@ energy of a flow structure
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Exercise-solutions">Exercise solutions<a class="anchor-link" href="#Exercise-solutions">¶</a></h1><p>The four exercises, solved with the notebook's own loader (<code>CFDTimeSeriesLoader.prepare_forecasting_data</code>), model builders (<code>create_dense_baseline</code>, <code>create_simple_rnn</code>, <code>create_gru</code>, <code>create_lstm</code>), <code>compile_regression_model</code>, <code>create_early_stopping</code> and training settings (early stopping patience 8, Adam 1e-3, MAE loss, batch 64). <strong>Exercise budget (mine):</strong> every exercise model trains for at most 40 epochs with the notebook's early stopping, at most three configurations per sweep. All errors are test MAE on the normalised signal, compared with the persistence baseline on the same target.</p>
-<p><strong>Definition of the horizon.</strong> The notebook's models end in <code>Dense(1)</code>, while <code>prepare_forecasting_data</code> returns a window of <code>output_window</code> future values; Keras then compares the single prediction with every value of the window. For the exercises the target is made explicit: the value <code>horizon</code> steps after the end of the input window (column <code>horizon - 1</code> of a window with <code>output_window = horizon</code>). Compute plan: about 9 GRU and 3 dense trainings on the CPU, under 20 minutes.</p>
+<h1 id="Experiment-solutions">Experiment solutions<a class="anchor-link" href="#Experiment-solutions">¶</a></h1><p>The four experiments, solved with the notebook's own loader (<code>CFDTimeSeriesLoader.prepare_forecasting_data</code>), model builders (<code>create_dense_baseline</code>, <code>create_simple_rnn</code>, <code>create_gru</code>, <code>create_lstm</code>), <code>compile_regression_model</code>, <code>create_early_stopping</code> and training settings (early stopping patience 8, Adam 1e-3, MAE loss, batch 64). <strong>Experiment budget (mine):</strong> every experiment model trains for at most 40 epochs with the notebook's early stopping, at most three configurations per sweep. All errors are test MAE on the normalised signal, compared with the persistence baseline on the same target.</p>
+<p><strong>Definition of the horizon.</strong> The notebook's models end in <code>Dense(1)</code>, while <code>prepare_forecasting_data</code> returns a window of <code>output_window</code> future values; Keras then compares the single prediction with every value of the window. For the experiments the target is made explicit: the value <code>horizon</code> steps after the end of the input window (column <code>horizon - 1</code> of a window with <code>output_window = horizon</code>). Compute plan: about 9 GRU and 3 dense trainings on the CPU, under 20 minutes.</p>
 </div>
 </div>
 </div>
@@ -25106,7 +25106,7 @@ energy of a flow structure
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Exercise-1-%E2%80%94-solution">Exercise 1 — solution<a class="anchor-link" href="#Exercise-1-%E2%80%94-solution">¶</a></h2><p>Horizons 1, 10 and 50 steps, input window 300, the notebook's dense baseline and GRU (hidden size 32) and persistence.</p>
+<h2 id="Experiment-1-%E2%80%94-solution">Experiment 1 — solution<a class="anchor-link" href="#Experiment-1-%E2%80%94-solution">¶</a></h2><p>Horizons 1, 10 and 50 steps, input window 300, the notebook's dense baseline and GRU (hidden size 32) and persistence.</p>
 </div>
 </div>
 </div>
@@ -25222,7 +25222,7 @@ Persistence     0.0190  0.1844  0.6456
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Exercise-2-%E2%80%94-solution">Exercise 2 — solution<a class="anchor-link" href="#Exercise-2-%E2%80%94-solution">¶</a></h2><p>Input windows of 20 and 80 samples (300 is the notebook's window, run in Exercise 1 at horizon 10), GRU with hidden size 32.</p>
+<h2 id="Experiment-2-%E2%80%94-solution">Experiment 2 — solution<a class="anchor-link" href="#Experiment-2-%E2%80%94-solution">¶</a></h2><p>Input windows of 20 and 80 samples (300 is the notebook's window, run in Experiment 1 at horizon 10), GRU with hidden size 32.</p>
 </div>
 </div>
 </div>
@@ -25295,7 +25295,7 @@ Result (Exercise 2): GRU test MAE window 20: 0.0739 (0.85 s/epoch), window 80: 0
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Exercise-3-%E2%80%94-solution">Exercise 3 — solution<a class="anchor-link" href="#Exercise-3-%E2%80%94-solution">¶</a></h2><p>Hidden sizes 8 and 64 for the GRU (32 in Exercise 1) (window 300, horizon 10). Overfitting is read from the gap between the best validation loss and the training loss at that epoch.</p>
+<h2 id="Experiment-3-%E2%80%94-solution">Experiment 3 — solution<a class="anchor-link" href="#Experiment-3-%E2%80%94-solution">¶</a></h2><p>Hidden sizes 8 and 64 for the GRU (32 in Experiment 1) (window 300, horizon 10). Overfitting is read from the gap between the best validation loss and the training loss at that epoch.</p>
 </div>
 </div>
 </div>
@@ -25356,7 +25356,7 @@ Result (Exercise 3): GRU test MAE hidden 8: 0.0868 (val-train gap +0.0013, 1.63 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Exercise-4-%E2%80%94-solution">Exercise 4 — solution<a class="anchor-link" href="#Exercise-4-%E2%80%94-solution">¶</a></h2><p>Two stacked GRU layers (<code>return_sequences=True</code> in the first), hidden size 32, compared with the single-layer GRU of Exercise 1 (window 300, horizon 10) under the same budget.</p>
+<h2 id="Experiment-4-%E2%80%94-solution">Experiment 4 — solution<a class="anchor-link" href="#Experiment-4-%E2%80%94-solution">¶</a></h2><p>Two stacked GRU layers (<code>return_sequences=True</code> in the first), hidden size 32, compared with the single-layer GRU of Experiment 1 (window 300, horizon 10) under the same budget.</p>
 </div>
 </div>
 </div>
@@ -25408,12 +25408,12 @@ Result (Exercise 4): test MAE / s per epoch: GRU x2: 0.0289 / 3.69; single GRU a
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Questions-of-the-exercises-%E2%80%94-answers">Questions of the exercises — answers<a class="anchor-link" href="#Questions-of-the-exercises-%E2%80%94-answers">¶</a></h2><p>The answers below refer to the <code>Result</code> lines printed above; the tables are in <code>../results/02_recurrent_forecasting/exercises/</code>.</p>
+<h2 id="Questions-of-the-experiments-%E2%80%94-answers">Questions of the experiments — answers<a class="anchor-link" href="#Questions-of-the-experiments-%E2%80%94-answers">¶</a></h2><p>The answers below refer to the <code>Result</code> lines printed above; the tables are in <code>../results/02_recurrent_forecasting/exercises/</code>.</p>
 <ul>
-<li><strong>Exercise 1.</strong> (1) Short-term prediction is easier: every model's error, and persistence's, grows with the horizon. (2) Persistence degrades fastest as the horizon passes the signal's correlation time. (3) The most robust model is the one with the smallest error relative to persistence at h = 50, named in the Result line.</li>
-<li><strong>Exercise 2.</strong> (1)–(3) The table shows whether a longer history lowers the error and where it stops helping; the time per epoch of a recurrent layer grows roughly in proportion to the window length, because the layer runs once per time step.</li>
-<li><strong>Exercise 3.</strong> (1)–(3) The table gives the error, the generalisation gap and the time per epoch for each hidden size.</li>
-<li><strong>Exercise 4.</strong> (1)–(3) Stacking doubles the recurrent work per step; the table shows whether the validation and test error improve enough to justify it.</li>
+<li><strong>Experiment 1.</strong> (1) Short-term prediction is easier: every model's error, and persistence's, grows with the horizon. (2) Persistence degrades fastest as the horizon passes the signal's correlation time. (3) The most robust model is the one with the smallest error relative to persistence at h = 50, named in the Result line.</li>
+<li><strong>Experiment 2.</strong> (1)–(3) The table shows whether a longer history lowers the error and where it stops helping; the time per epoch of a recurrent layer grows roughly in proportion to the window length, because the layer runs once per time step.</li>
+<li><strong>Experiment 3.</strong> (1)–(3) The table gives the error, the generalisation gap and the time per epoch for each hidden size.</li>
+<li><strong>Experiment 4.</strong> (1)–(3) Stacking doubles the recurrent work per step; the table shows whether the validation and test error improve enough to justify it.</li>
 </ul>
 </div>
 </div>
@@ -25425,11 +25425,11 @@ Result (Exercise 4): test MAE / s per epoch: GRU x2: 0.0289 / 3.69; single GRU a
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Summary-of-the-exercise-solutions">Summary of the exercise solutions<a class="anchor-link" href="#Summary-of-the-exercise-solutions">¶</a></h2><ul>
-<li><strong>Exercise 1:</strong> error against forecasting horizon for persistence and the four models.</li>
-<li><strong>Exercise 2:</strong> effect of the history length on error and cost.</li>
-<li><strong>Exercise 3:</strong> model size against error, overfitting and cost.</li>
-<li><strong>Exercise 4:</strong> one versus two recurrent layers.</li>
+<h2 id="Summary-of-the-experiment-solutions">Summary of the experiment solutions<a class="anchor-link" href="#Summary-of-the-experiment-solutions">¶</a></h2><ul>
+<li><strong>Experiment 1:</strong> error against forecasting horizon for persistence and the four models.</li>
+<li><strong>Experiment 2:</strong> effect of the history length on error and cost.</li>
+<li><strong>Experiment 3:</strong> model size against error, overfitting and cost.</li>
+<li><strong>Experiment 4:</strong> one versus two recurrent layers.</li>
 </ul>
 </div>
 </div>
@@ -25510,7 +25510,7 @@ Result (Exercise 4): test MAE / s per epoch: GRU x2: 0.0289 / 3.69; single GRU a
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Three-seed-repeats">Three-seed repeats<a class="anchor-link" href="#Three-seed-repeats">¶</a></h1><p>Every training in this notebook takes well under 15 minutes, so each is repeated with the seeds 0, 1 and 2. <strong>Seed 0 is the base run</strong>: the notebook's own training above (cell 21, seeds set in cell 3) and the exercise solutions above (<code>seed=0</code>). For seeds 1 and 2, <code>tf.keras.utils.set_random_seed(seed)</code> sets the initial weights and the training-set shuffle uses the same seed; data, split, settings and devices are unchanged. One cell per seed, then a summary: mean, standard deviation, minimum and maximum over the three seeds. A difference between two models smaller than these spreads is not an effect.</p>
+<h1 id="Three-seed-repeats">Three-seed repeats<a class="anchor-link" href="#Three-seed-repeats">¶</a></h1><p>Every training in this notebook takes well under 15 minutes, so each is repeated with the seeds 0, 1 and 2. <strong>Seed 0 is the base run</strong>: the notebook's own training above (cell 21, seeds set in cell 3) and the experiment solutions above (<code>seed=0</code>). For seeds 1 and 2, <code>tf.keras.utils.set_random_seed(seed)</code> sets the initial weights and the training-set shuffle uses the same seed; data, split, settings and devices are unchanged. One cell per seed, then a summary: mean, standard deviation, minimum and maximum over the three seeds. A difference between two models smaller than these spreads is not an effect.</p>
 </div>
 </div>
 </div>
